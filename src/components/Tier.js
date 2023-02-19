@@ -1,30 +1,20 @@
-import React from "react";
 import "../pages/HomePage.css";
+import { Container, Col, Row } from "reactstrap";
 import TierRow from "./TierRow";
-import TierCell from "./TierCell";
-import { Col } from "reactstrap";
 
-const Tier = ({ tierLabel, tierCells }) => {
-  //   const createRowOfTierCells = () => {
-  //     for (let i = 0; i < 10; i++) {
-  //       <TierCell></TierCell>;
-  //     }
-  //   };
-
+const Tier = () => {
   return (
-    <>
-      <Col>
-        <TierCell
-          className="myLabelBox"
-          id="ABC123"
-          celltext="Label"
-          ref="drop"
-        />
-      </Col>
-      <Col>
-        <TierRow cellList={tierCells} />
-      </Col>
-    </>
+    <Container className="myContainer">
+      <Row className="myRow">
+        <Col>
+          <div className="myBox">Label</div>
+        </Col>
+        <Col>
+          <TierRow />
+          <TierRow />
+        </Col>
+      </Row>
+    </Container>
   );
 };
 
