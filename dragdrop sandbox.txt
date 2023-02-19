@@ -1,0 +1,148 @@
+import React, { createElement, useState, useCallback } from "react";
+import { Drawer, Grid, makeStyles, Paper } from "@material-ui/core";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
+import DragableItem from "./DragableItem";
+
+const useStyles = makeStyles((theme) => ({
+  backgroundColor: {
+    backgroundColor: "gray"
+  }
+}));
+
+const DragNDrop = () => {
+  const [lists, setLists] = useState([
+    { id: 0, title: "first", cardIds: [0, 1, 2] },
+    { id: 1, title: "second", cardIds: [3, 4, 5] },
+    { id: 2, title: "third", cardIds: [6, 7, 8] }
+  ]);
+  const [items, setItems] = useState([
+    { id: 0, data: "a" },
+    { id: 1, data: "b" },
+    { id: 2, data: "c" },
+    { id: 3, data: "d" },
+    { id: 4, data: "e" },
+    { id: 5, data: "f" },
+    { id: 6, data: "g" },
+    { id: 7, data: "h" },
+    { id: 8, data: "i" }
+  ]);
+
+  const moveItem = (itemId, columnId, index) => {
+    console.log("Moving:", itemId, columnId, index);
+    setLists((prev) => {
+      const newlist = [...prev];
+      const destinationColumn = newlist.filter(
+        (list) => list.id === columnId
+      )[0];
+      destinationColumn.cardIds.splice(index, 0, itemId);
+
+      return newlist;
+    });
+  };
+
+  const render = () => {
+    return lists.map((list, columnIndex) => (
+      <Grid container direction="column" spacing={7}>
+        <Grid item lg={4}>
+          <Grid container direction="row">
+            {list.cardIds.map((id, index) => (
+              <Grid item lg={3} key={id}>
+                <DragableItem
+                  itemId={id}
+                  name={items[id]}
+                  type="subType"
+                  columnId={list.id}
+                  moveItem={moveItem}
+                  columnIndex={index}
+                >
+                  {items[id].data}
+                </DragableItem>
+              </Grid>
+            ))}
+          </Grid>
+        </Grid>
+      </Grid>
+    ));
+  };
+
+  return <DndProvider backend={HTML5Backend}>{render()}</DndProvider>;
+};
+
+export default DragNDrop;
+
+
+
+import React, { useRef } from "react";
+import { useDrag, useDrop } from "react-dnd";
+
+const style = {
+  border: "1px dashed gray",
+  padding: "0.5rem 1rem",
+  //   marginBottom: ".5rem",
+  backgroundColor: "white",
+  cursor: "move",
+  width: "100%",
+  height: "100%"
+};
+
+const DragableItem = ({
+  itemId,
+  name,
+  columnIndex,
+  columnId,
+  moveItem,
+  type,
+  children
+}) => {
+  const firstRef = useRef(null);
+  const secondRef = useRef(null);
+  const [{ isOver, canDrop }, drop] = useDrop({
+    accept: type,
+    hover: (draggingItem, monitor) => {
+      if (!firstRef.current) {
+        return;
+      }
+      //   const { itemId, columnIndex } = item;
+      // const draggingItem = monitor.getItem();
+      console.log("moving:", {
+        draggingItem: draggingItem.itemId,
+        recievingItem: itemId
+      });
+      if (itemId !== draggingItem.id) {
+        // moveItem(itemId, columnId, columnIndex);
+      }
+    },
+    collect: (monitor) => ({
+      isOver: monitor.isOver(),
+      canDrop: monitor.canDrop()
+    })
+  });
+
+  const [collected, drag, dragPreview] = useDrag(() => ({
+    type,
+    name,
+    item: { itemId, columnIndex, name }
+  }));
+
+  const isActive = isOver && canDrop;
+  let backgroundColor = "#e6e6e6";
+  if (isActive) {
+    backgroundColor = "#757575";
+  } else if (canDrop) {
+    backgroundColor = "#e6e6e6";
+  }
+
+  drop(drag(firstRef));
+  dragPreview(secondRef);
+
+  return collected.isDragging ? (
+    <div ref={secondRef} />
+  ) : (
+    <div ref={firstRef} style={{ ...style, backgroundColor }} {...collected}>
+      {children}
+    </div>
+  );
+};
+
+export default DragableItem;
