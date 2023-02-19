@@ -2,7 +2,7 @@ import "../pages/HomePage.css";
 import TierCell from "./TierCell";
 import { Row, Col } from "reactstrap";
 
-const TierRow = ({ cellList }) => {
+const TierRow = ({ cellList, onDropUpdate }) => {
   // Use .slice functions below on a copy of cellList
   // Don't mutate the original
   const imageDropHandler = (imageId, dragCell, dropCell) => {
@@ -36,6 +36,7 @@ const TierRow = ({ cellList }) => {
   const imageCellList = cellList.slice(1);
   return (
     <Row key={Math.random()} className="row-item">
+      <Col className="tier-item2">{imageCells(labelCellList)}</Col>
       <Col className="tier-item">{imageCells(imageCellList)}</Col>
     </Row>
   );

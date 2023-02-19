@@ -3,12 +3,13 @@ import TierRow from "./TierRow";
 import { Container } from "reactstrap";
 import { useState } from "react";
 import INITIALGRID1 from "../app/shared/INITIALGRID1";
+import { emptyRow } from "../app/shared/INITIALGRID1";
 
 const emptyCell = {
-  id: "",
+  id: "target-180",
   cellText: "",
   cellLocation: "",
-  cellStyle: "",
+  cellStyle: "myBox",
   image: {
     type: "",
     draggable: false,
@@ -19,6 +20,15 @@ const emptyCell = {
     dropImgParent: "",
   },
 };
+
+// Drag cell
+//
+// Starting image cells are one row with one label.  Initially 20, in demo.  2 rows, change to one label.
+// Collect drag imageId
+// Collect dragged cellId
+// Collect imageArr from Drag Row
+// Remove drag image from imageArr
+// Reparent imageArr with Row cells
 
 const findDragCellRowIndex = (tiers, dragCellId) => {
   let foundIndex;
@@ -78,6 +88,13 @@ const createNewDragRow = (tiers, dragCellRowIndex, newDragImgArr) => {
 };
 //
 // Drop Functions
+// Don't splice the end cell after drop
+// add new empty cell to the row, the empty row then add images
+// Limit image cells to 10 per row. Might need to make Column 2 in TierList an array of rows of 10
+// Add cell if total more than 10.
+// Remove cell each time dragged away and more than 10 cells
+// Don't remove cell if row is 10 and dragged away
+// Need a creation mechanism for unique image Ids.  Probably just row and index combination.
 //
 const findDropRowIndex = (tiers, dropCellId) => {
   let foundIndex;
@@ -94,9 +111,16 @@ const findDropRowIndex = (tiers, dropCellId) => {
   }
 };
 
-// need to update this to shift it to the left if no images exist
-// if dropCellIndex > ImageArray, max index place at Max index + 1
-// if dropCellIndex <= ImageArray max index then splice at dropCellIndex
+const newRow = (overflowImage, emptyRow) => {};
+
+const checkFullRow = (imageArr, dropRow) => {
+  let newRow = {};
+  let overflowImage = {};
+  if (imageArr.length === 10) {
+    createNewDragRow(emptyRow, overflowImage);
+  }
+};
+
 const updateCurrentDropRowImageArray = (
   tiers,
   dragImageObject,
@@ -117,11 +141,11 @@ const updateCurrentDropRowImageArray = (
   if (dropCellIndex > findFirstEmptyIndex) {
     newDropImgArr.splice(findFirstEmptyIndex, 0, dragImageObject);
     // Remove the 11th image object
-    newDropImgArr.splice(-1, 1);
+    // newDropImgArr.splice(-1, 1);
   } else {
     newDropImgArr.splice(dropCellIndex, 0, dragImageObject);
     // Remove the 11th image object
-    newDropImgArr.splice(-1, 1);
+    // newDropImgArr.splice(-1, 1);
   }
 
   return newDropImgArr;
@@ -129,6 +153,11 @@ const updateCurrentDropRowImageArray = (
 
 const createNewDropRowImages = (tiers, dropCellRowIndex, newDropImgArr) => {
   let dropRow = tiers.grid[dropCellRowIndex];
+  console.log(emptyCell);
+  dropRow.cellArray.push(emptyCell);
+  console.log(dropRow.cellArray);
+  // dropRow.cellArray.push(emptyCell);
+  // console.log(dropRow.cellAray.length);
   const newDropRowImages = dropRow.cellArray.map((cell) => {
     cell.image = emptyCell.image;
   });
@@ -166,7 +195,6 @@ const gridUpdate = (
 // ******************************************************
 // ******************************************************
 // ******************************************************
-// const newGrid = (tiers) => {};
 
 const TierList = () => {
   const startGrid = {
@@ -253,6 +281,9 @@ const TierList = () => {
     setTiers(dragDropGrid);
   };
 
+  // ToDo
+  // Need to format rows with greater than 10 cells to have a max of 10 cells
+
   return (
     <Container className="myContainer">
       {tiers.grid.map((tier) => {
@@ -264,16 +295,6 @@ const TierList = () => {
           />
         );
       })}
-      <div>x</div>
-      <div>x</div>
-      <div>x</div>
-      <button
-        id="testbutton"
-        className="myBox"
-        onClick={() => {
-          console.log("hello");
-        }}
-      />
     </Container>
   );
 };

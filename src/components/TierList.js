@@ -21,15 +21,6 @@ const emptyCell = {
   },
 };
 
-// Drag cell
-//
-// Starting image cells are one row with one label.  Initially 20, in demo.  2 rows, change to one label.
-// Collect drag imageId
-// Collect dragged cellId
-// Collect imageArr from Drag Row
-// Remove drag image from imageArr
-// Reparent imageArr with Row cells
-
 const findDragCellRowIndex = (tiers, dragCellId) => {
   let foundIndex;
   let foundRow;

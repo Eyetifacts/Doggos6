@@ -14,7 +14,7 @@ const images = importAll(
   require.context("../app/assets/dogIcons", false, /\.(png|jpe?g|svg)$/)
 );
 
-const cellImgDisplay = (cellId, imgId) => {
+const cellImgDisplay = (cellId, imgId, drag, isDragging) => {
   let cImg;
   if (imgId !== "") {
     cImg = images[imgId];
@@ -28,12 +28,27 @@ const cellImgDisplay = (cellId, imgId) => {
         src={cImg}
         id={imgId}
         parent={cellId}
+        ref={drag}
+        style={{
+          opacity: isDragging ? 0.2 : 1,
+          cursor: "move",
+        }}
       />
     );
   }
 };
 
 const DragImage = ({ iId, currentParent }) => {
+  const [{ isDragging }, drag] = useDrag({
+    item: {
+      idOfImage: iId,
+      originalParent: currentParent,
+    },
+    type: ItemTypes.IMAGEITEM,
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
   return cellImgDisplay(currentParent, iId, drag, isDragging);
 };
 
