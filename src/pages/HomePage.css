@@ -159,6 +159,8 @@
   margin-right: 5px;
   margin-bottom: 20px;
   width: 775px;
+  border: 1px solid #ececec;
+  background-color: #716c77;
 }
 
 .expense-item__description {

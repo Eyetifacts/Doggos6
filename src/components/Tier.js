@@ -4,13 +4,12 @@ import TierRow from "./TierRow";
 
 const Tier = () => {
   return (
-    <Container className="myContainer">
+    <Container>
       <Row className="myRow">
         <Col>
-          <div className="myBox">Label</div>
+          <div className="myLabelBox2">Label</div>
         </Col>
         <Col>
-          <TierRow />
           <TierRow />
         </Col>
       </Row>
