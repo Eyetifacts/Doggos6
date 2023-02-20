@@ -5,11 +5,11 @@ import TierRow from "./TierRow";
 const Tier = () => {
   return (
     <Container>
-      <Row className="myRow">
-        <Col>
-          <div className="myLabelBox2">Label</div>
+      <Row className="row-item">
+        <Col className="tier-item2">
+          <div className="myLabelBox">Label</div>
         </Col>
-        <Col>
+        <Col className="tier-item">
           <TierRow />
         </Col>
       </Row>

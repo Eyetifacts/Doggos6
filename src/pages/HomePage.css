@@ -163,6 +163,21 @@
   background-color: #716c77;
 }
 
+.myContainer2 {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  border-radius: 12px;
+  padding: 0.5px;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-bottom: 20px;
+  width: 600px;
+  border: 1px solid #ececec;
+  background-color: #716c77;
+}
+
 .expense-item__description {
   display: flex;
   flex-direction: column;
