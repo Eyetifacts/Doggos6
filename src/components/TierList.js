@@ -6,6 +6,7 @@ const TierList = () => {
   return (
     <Container className="myContainer">
       <Tier />
+      <Tier />
     </Container>
   );
 };
