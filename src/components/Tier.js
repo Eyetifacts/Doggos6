@@ -6,7 +6,7 @@ const Tier = ({ id, cellArray }) => {
   const labelDetails = cellArray[0];
   const createRowArray = (origArray) => {
     let newRowArray = [];
-    for (let i = 1; i < 11; i++) {
+    for (let i = 1; i < cellArray.length; i++) {
       newRowArray.push(origArray[i]);
     }
     return newRowArray;
