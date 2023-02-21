@@ -7,7 +7,7 @@ const TierList = () => {
   return (
     <Container className="myContainer">
       {StartGrid.map((tier) => {
-        return <Tier id={tier.id} cellArray={tier.cellArray} />;
+        return <Tier key={tier.id} id={tier.id} cellArray={tier.cellArray} />;
       })}
     </Container>
   );

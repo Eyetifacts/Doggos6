@@ -21,7 +21,11 @@ const Tier = ({ id, cellArray }) => {
           </div>
         </Col>
         <Col className="tier-item">
-          <TierRow rowArray={createRowArray(cellArray)} />
+          <TierRow
+            key={Math.random()}
+            idOfRow={id}
+            rowArray={createRowArray(cellArray)}
+          />
         </Col>
       </Row>
     </Container>

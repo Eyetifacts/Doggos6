@@ -1,8 +1,8 @@
 import "../pages/HomePage.css";
 
-const TierCell = ({ key, id, cellLabel, image }) => {
+const TierCell = ({ id, cellLabel, image }) => {
   return (
-    <div className="myBoxP" id={id} cellLabel={cellLabel}>
+    <div className="myBoxP" id={id} key={id}>
       {cellLabel}
     </div>
   );
