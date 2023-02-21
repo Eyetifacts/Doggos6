@@ -1,8 +1,8 @@
 import "../pages/HomePage.css";
-import { Container } from "reactstrap";
 
-const TierCell = () => {
-  return <div className="myBoxP"></div>;
+const TierCell = ({ cellLabel }) => {
+  console.log(cellLabel);
+  return <div className="myBoxP">{cellLabel}</div>;
 };
 
 export default TierCell;

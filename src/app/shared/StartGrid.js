@@ -48,7 +48,7 @@ const INITIALGRID = [
       },
       {
         id: "target-00",
-        celllabel: "",
+        cellLabel: "Targ00",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -61,7 +61,7 @@ const INITIALGRID = [
       },
       {
         id: "target-01",
-        celllabel: "",
+        cellLabel: "Targ01",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -74,7 +74,7 @@ const INITIALGRID = [
       },
       {
         id: "target-02",
-        celllabel: "",
+        cellLabel: "Targ02",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -87,7 +87,7 @@ const INITIALGRID = [
       },
       {
         id: "target-03",
-        celllabel: "",
+        cellLabel: "Targ03",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -100,7 +100,7 @@ const INITIALGRID = [
       },
       {
         id: "target-04",
-        celllabel: "",
+        cellLabel: "Targ04",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -113,7 +113,7 @@ const INITIALGRID = [
       },
       {
         id: "target-05",
-        celllabel: "",
+        cellLabel: "Targ05",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -126,7 +126,7 @@ const INITIALGRID = [
       },
       {
         id: "target-06",
-        celllabel: "",
+        cellLabel: "Targ06",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -139,7 +139,7 @@ const INITIALGRID = [
       },
       {
         id: "target-07",
-        celllabel: "",
+        cellLabel: "Targ07",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -152,7 +152,7 @@ const INITIALGRID = [
       },
       {
         id: "target-08",
-        celllabel: "",
+        cellLabel: "Targ08",
         cellStyle: "myBoxP",
         image: {
           type: "",
@@ -165,7 +165,7 @@ const INITIALGRID = [
       },
       {
         id: "target-09",
-        celllabel: "",
+        cellLabel: "Targ09",
         cellStyle: "myBoxP",
         image: {
           type: "",
