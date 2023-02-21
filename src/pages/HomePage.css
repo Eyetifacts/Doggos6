@@ -77,10 +77,11 @@
   background-color: #d4c1d8;
   color: white;
   border-radius: 12px;
-  margin-top: 0.5px;
+  margin: 1.5px;
+  /* margin-top: 0.5px;
   margin-bottom: 0.5px;
   margin-left: 0.5px;
-  margin-right: 0.5px;
+  margin-right: 0.5px; */
 }
 
 .myLabelBox {
@@ -159,7 +160,7 @@
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 20px;
-  width: 810px;
+  width: 820px;
   border: 1px solid #ececec;
   background-color: #e43030;
 }
@@ -174,7 +175,7 @@
   margin-left: 5px;
   margin-right: 5px;
   margin-bottom: 5px;
-  width: 700px;
+  width: 707px;
   border: 1px solid #ececec;
   background-color: #716c77;
 }

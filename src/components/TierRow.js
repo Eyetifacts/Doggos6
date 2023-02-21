@@ -62,57 +62,6 @@ const TierRow = () => {
         <Col>
           <div className="myBoxP">Hello1</div>
         </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello1</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello1</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello1</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello1</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello1</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello2</div>
-        </Col>
-        <Col>
-          <div className="myBoxP">Hello3</div>
-        </Col>
       </Row>
     </Container>
   );
