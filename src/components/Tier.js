@@ -9,7 +9,6 @@ const Tier = ({ id, cellArray }) => {
     for (let i = 1; i < 11; i++) {
       newRowArray.push(origArray[i]);
     }
-    console.log(Array.isArray(newRowArray));
     return newRowArray;
   };
   return (
