@@ -39,17 +39,17 @@ const cellImgDisplay = (currentParent, imgId, drag, isDragging) => {
 };
 
 const DragImage = ({ iId, currentParent }) => {
-  // const [{ isDragging }, drag] = useDrag({
-  //   item: {
-  //     idOfImage: iId,
-  //     originalParent: currentParent,
-  //   },
-  //   type: ItemTypes.IMAGEITEM,
-  //   collect: (monitor) => ({
-  //     isDragging: !!monitor.isDragging(),
-  //   }),
-  // });
-  return cellImgDisplay(currentParent, iId);
+  const [{ isDragging }, drag] = useDrag({
+    item: {
+      idOfImage: iId,
+      originalParent: currentParent,
+    },
+    type: ItemTypes.IMAGEITEM,
+    collect: (monitor) => ({
+      isDragging: !!monitor.isDragging(),
+    }),
+  });
+  return cellImgDisplay(currentParent, iId, drag, isDragging);
 };
 
 export default DragImage;
