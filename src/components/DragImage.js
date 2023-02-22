@@ -1,4 +1,6 @@
 import "../pages/HomePage.css";
+import { useDrag } from "react-dnd";
+import { ItemTypes } from "./IMAGEITEM";
 
 function importAll(r) {
   let images = {};
