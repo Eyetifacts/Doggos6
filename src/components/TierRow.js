@@ -4,7 +4,7 @@ import TierCell from "./TierCell";
 
 const TierRow = ({ rowArray, rowId }) => {
   const imageDropHandler = (imageId, dragCell, dropCell) => {
-    console.log(dropCell);
+    console.log(imageId);
     // onDropUpdate(imageId, dragCell, dropCell);
   };
 

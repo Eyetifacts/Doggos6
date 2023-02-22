@@ -11,6 +11,12 @@ const TierCell = ({ id, cellLabel, imageId, onImageDrop }) => {
     accept: ItemTypes.IMAGEITEM,
     drop: (item, monitor) =>
       onImageDrop(item.idOfImage, item.originalParent, id),
+    // item: {
+    //   idOfImage: iId,
+    //   originalParent: currentParent,
+    // },
+    // drop returns the drop result, which should be the item (img, dragCell, dropCell)
+    // the item in the function above is simply passing the drag item to the function
     // if you know the imageId you can find it's starting location from the current state.  It can be found in the object model.
     hover(item, monitor) {},
     collect: (monitor) => ({
