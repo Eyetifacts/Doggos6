@@ -3,6 +3,11 @@ import { Container, Row } from "reactstrap";
 import TierCell from "./TierCell";
 
 const TierRow = ({ rowArray, rowId }) => {
+  const imageDropHandler = (imageId, dragCell, dropCell) => {
+    console.log(dropCell);
+    // onDropUpdate(imageId, dragCell, dropCell);
+  };
+
   return (
     <Container className="myContainer2" key={rowId}>
       <Row className="myRow" key={rowId} id={rowId}>
@@ -13,6 +18,7 @@ const TierRow = ({ rowArray, rowId }) => {
               id={cell.id}
               cellLabel={cell.cellLabel}
               imageId={cell.image.imageId}
+              onImageDrop={imageDropHandler}
             />
           );
         })}
