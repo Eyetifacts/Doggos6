@@ -1,5 +1,5 @@
 import "../pages/HomePage.css";
-import { Container, Row, Col } from "reactstrap";
+import { Container, Row } from "reactstrap";
 import TierCell from "./TierCell";
 
 const TierRow = ({ rowArray, rowId }) => {
@@ -8,7 +8,12 @@ const TierRow = ({ rowArray, rowId }) => {
       <Row className="myRow" key={rowId} id={rowId}>
         {rowArray.map((cell) => {
           return (
-            <TierCell key={cell.id} id={cell.id} cellLabel={cell.cellLabel} />
+            <TierCell
+              key={cell.id}
+              id={cell.id}
+              cellLabel={cell.cellLabel}
+              imageId={cell.image.imageId}
+            />
           );
         })}
       </Row>
