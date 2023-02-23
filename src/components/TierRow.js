@@ -4,8 +4,9 @@ import TierCell from "./TierCell";
 
 const TierRow = ({ rowArray, rowId }) => {
   const imageDropHandler = (imageId, dragCell, dropCell) => {
-    console.log(imageId);
+    // pass the image, drag and drop cells up to the state.  Functions to make changes to the state should be there.
     // onDropUpdate(imageId, dragCell, dropCell);
+    // if no return, this matches the React DnD docs.  The function called on drop (TierCell) should return undefined or an object.
   };
 
   return (
