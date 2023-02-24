@@ -5,7 +5,7 @@ import StartGrid from "../app/shared/StartGrid";
 import { useState } from "react";
 
 // Drop
-//
+// (push commit)
 // Find row
 // Get cell array
 // if current row has 10 images - create 10 new cells with empty image objects
