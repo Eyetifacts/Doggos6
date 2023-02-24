@@ -39,6 +39,9 @@ const TierList = () => {
     setTiers((prevState) => {
       let newGrid = prevState;
       newGrid[5].cellArray[1].image = emptyImage;
+
+      // I needed to return an object of prevState.  I put i regular () needed to be brackets for object {}
+      // return {...prevState, prevState[5].cellArray[1].image: emptyImage}
       return newGrid;
     });
 
