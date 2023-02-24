@@ -6,19 +6,19 @@ import { useState } from "react";
 
 // Drop
 //
-// Find drop cell row and drop location
-// Collect Current Image Array
-// Insert dropped Image to left of drop cell
-// If Images = 11
-// Add 10 new empty cells at the end of the cell Array
-// Reparent shifted images to row(s)
+// Find row
+// Get cell array
+// if current row has 10 images - create 10 new cells with empty image objects
+// Shift all image items to the right of the drop location one spot right
+// Insert image cell at drop location
 //
 // Drag
 //
-// Find drag cell row and drag location
-// Collect Current Image Array for row
-// Remove image from Array and shift images right
-// If new image array has 10 elements - remove 10 empty row cells
+// Find drage cell row and drag location
+// If number of cells = 11 - shift all current images left
+// Remove last 10 cells
+//
+// Update State with updated Grid
 
 const TierList = () => {
   const [tiers, setTiers] = useState(StartGrid);
