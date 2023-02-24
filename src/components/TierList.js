@@ -3,9 +3,10 @@ import { Container } from "reactstrap";
 import Tier from "./Tier";
 import StartGrid from "../app/shared/StartGrid";
 import { useState } from "react";
+import Header from "./Header";
 
 // Drop
-// (push commit)
+//
 // Find row
 // Get cell array
 // if current row has 10 images - create 10 new cells with empty image objects
@@ -22,10 +23,40 @@ import { useState } from "react";
 
 const TierList = () => {
   const [tiers, setTiers] = useState(StartGrid);
+
+  // tierUpdateHandler should update the state as indicated above
+  //
+  const tierUpdateHandler = (imageId, dragCell, dropCell) => {
+    const emptyImage = {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageString: null,
+      imageUrl: "",
+      dropImgParent: "",
+    };
+
+    setTiers((prevState) => {
+      let newGrid = prevState;
+      newGrid[5].cellArray[1].image = emptyImage;
+      return newGrid;
+    });
+
+    console.log(tiers[5].cellArray[1]);
+  };
+
   return (
     <Container className="myContainer">
+      <Header />
       {tiers.map((tier) => {
-        return <Tier key={tier.id} id={tier.id} cellArray={tier.cellArray} />;
+        return (
+          <Tier
+            key={tier.id}
+            id={tier.id}
+            cellArray={tier.cellArray}
+            onTierUpdate={tierUpdateHandler}
+          />
+        );
       })}
     </Container>
   );

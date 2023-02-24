@@ -2,7 +2,7 @@ import "../pages/HomePage.css";
 import { Container, Col, Row } from "reactstrap";
 import TierRow from "./TierRow";
 
-const Tier = ({ id, cellArray }) => {
+const Tier = ({ id, cellArray, onTierUpdate }) => {
   const labelDetails = cellArray[0];
   const createRowArray = (origArray) => {
     let newRowArray = [];
@@ -11,6 +11,11 @@ const Tier = ({ id, cellArray }) => {
     }
     return newRowArray;
   };
+
+  const rowUpdateHandler = (imageId, dragCell, dropCell) => {
+    onTierUpdate(imageId, dragCell, dropCell);
+  };
+
   return (
     <Container>
       <Row className="row-item">
@@ -24,6 +29,7 @@ const Tier = ({ id, cellArray }) => {
             key={Math.random()}
             idOfRow={id}
             rowArray={createRowArray(cellArray)}
+            onRowUpdate={rowUpdateHandler}
           />
         </Col>
       </Row>
