@@ -53,7 +53,7 @@ const TierList = () => {
     // Drop Cell Row
     //
     const findDropRowIndex = (tiers, dropCell) => {
-      let foundItem = {
+      let foundDropItem = {
         foundRowIndex: -1,
         foundCellndex: 0,
       };
@@ -64,12 +64,36 @@ const TierList = () => {
         );
 
         if (dropCellRowIndex > 0) {
-          foundItem.foundRowIndex = i;
-          foundItem.foundCellIndex = dropCellRowIndex;
-          return foundItem;
+          foundDropItem.foundRowIndex = i;
+          foundDropItem.foundCellIndex = dropCellRowIndex;
+          return foundDropItem;
         }
       }
     };
+
+    //
+    //
+    const findDragRowIndex = (tiers, dragCell) => {
+      let foundDragItem = {
+        foundRowIndex: -1,
+        foundCellndex: 0,
+      };
+      for (let i = 0; i < tiers.length; i++) {
+        let cellDragChildren = tiers[i].cellArray;
+        let dragCellRowIndex = cellDragChildren.findIndex(
+          (cell) => cell.id === dragCell
+        );
+
+        if (dragCellRowIndex > 0) {
+          foundDragItem.foundRowIndex = i;
+          foundDragItem.foundCellIndex = dragCellRowIndex;
+          return foundDragItem;
+        }
+      }
+    };
+
+    //
+    //
 
     const countCurrentRowImages = (row) => {
       let imageCount = 0;
@@ -79,7 +103,7 @@ const TierList = () => {
       return imageCount;
     };
 
-    const shiftRowAndDropImage = (tiers, dropCell) => {
+    const shiftRowAndDropImage = (tiers, dropCell, dragCell) => {
       const dropIndex = findDropRowIndex(tiers, dropCell);
       const imageCount = countCurrentRowImages(
         tiers[dropIndex.foundRowIndex].cellArray
@@ -88,6 +112,8 @@ const TierList = () => {
         tiers[dropIndex.foundRowIndex].cellArray[i + 1] =
           tiers[dropIndex.foundRowIndex].cellArray[i];
       }
+      tiers[dropIndex.foundRowIndex].cellArray[dropIndex.foundCellndex].image =
+        testImage;
     };
 
     // Drag Cell Row
