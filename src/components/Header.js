@@ -1,6 +1,6 @@
 import { Navbar, NavbarBrand } from "reactstrap";
 import "../pages/HomePage.css";
-// import { dogImages } from "../components/constants";
+import { dogImages } from "../constants";
 
 function importAll(r) {
   let images = {};
