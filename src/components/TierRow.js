@@ -1,44 +1,33 @@
 import "../pages/HomePage.css";
+import { Container, Row } from "reactstrap";
 import TierCell from "./TierCell";
-import { Row, Col } from "reactstrap";
 
-const TierRow = ({ cellList, onDropUpdate }) => {
-  // Use .slice functions below on a copy of cellList
-  // Don't mutate the original
+const TierRow = ({ rowArray, idOfRow, onRowUpdate }) => {
+  //
+  // pass the image, drag and drop cells up to the state.  Functions to make changes to the state should be there.
+  // if no return, this matches the React DnD docs.  The function called on drop (TierCell) should return undefined or an object.
+  //
+  //
   const imageDropHandler = (imageId, dragCell, dropCell) => {
-    onDropUpdate(imageId, dragCell, dropCell);
+    onRowUpdate(imageId, dragCell, dropCell);
   };
 
-  const createTierCell = (cell) => {
-    return (
-      <TierCell
-        key={cell.id}
-        cellClass={cell.cellStyle}
-        cellId={cell.id}
-        celltext={cell.cellText}
-        imageId={cell.image.imageId}
-        onImageDrop={imageDropHandler}
-      />
-    );
-  };
-
-  const imageCells = (listOfCells) => {
-    const tierImageCol = [...listOfCells];
-
-    const theImageCells = tierImageCol.map((cell) => {
-      return createTierCell(cell);
-    });
-
-    return theImageCells;
-  };
-
-  const labelCellList = cellList.slice(0, 1);
-  const imageCellList = cellList.slice(1);
   return (
-    <Row key={Math.random()} className="row-item">
-      <Col className="tier-item2">{imageCells(labelCellList)}</Col>
-      <Col className="tier-item">{imageCells(imageCellList)}</Col>
-    </Row>
+    <Container className="myContainer2" key={idOfRow}>
+      <Row className="myRow" key={idOfRow} id={idOfRow}>
+        {rowArray.map((cell) => {
+          return (
+            <TierCell
+              key={cell.id}
+              id={cell.id}
+              cellLabel={cell.cellLabel}
+              imageId={cell.image.imageId}
+              onImageDrop={imageDropHandler}
+            />
+          );
+        })}
+      </Row>
+    </Container>
   );
 };
 

@@ -1,47 +1,36 @@
 import "../pages/HomePage.css";
+import { Col } from "reactstrap";
 import DragImage from "./DragImage";
 import { ItemTypes } from "./IMAGEITEM";
 import { useDrop } from "react-dnd";
 
-const emptyCell = {
-  id: "",
-  cellText: "",
-  cellLocation: "",
-  cellStyle: "",
-  image: {
-    type: "",
-    draggable: false,
-    imageId: "",
-    imageUrl: "",
-    currentImgDivId: "",
-    dropImgLoc: "",
-    dropImgParent: "",
-  },
-};
+// ToDo:  add ternary to check if there is an image.  If so, add DragImage component as child of the div.
 
-const TierCell = ({ cellClass, cellId, celltext, imageId, onImageDrop }) => {
-  // const ref = useRef(null); // may not need this line ref for drop is below
+const TierCell = ({ id, cellLabel, imageId, onImageDrop }) => {
   const [{ isOver }, drop] = useDrop(() => ({
     accept: ItemTypes.IMAGEITEM,
     drop: (item, monitor) =>
-      onImageDrop(item.idOfImage, item.originalParent, cellId),
+      onImageDrop(item.idOfImage, item.originalParent, id),
+    // item: {
+    //   idOfImage: iId,
+    //   originalParent: currentParent,
+    // },
+    // drop returns the drop result, which should be the item (img, dragCell, dropCell)
+    // the item in the function above is simply passing the drag item to the function
     // if you know the imageId you can find it's starting location from the current state.  It can be found in the object model.
-    hover(item, monitor) {
-      // console.log(item.idOfImage);
-      // console.log(item.originalParent);
-      // console.log(cellId);
-      // hoverImageShift(cellId, item.iId);
-    },
+    hover(item, monitor) {},
     collect: (monitor) => ({
       isOver: !!monitor.isOver(),
     }), // collect is returning isOver, since it is a single line arrow function return key word is not needed
   }));
 
   return (
-    <div className={cellClass} id={cellId} celltext={celltext} ref={drop}>
-      {celltext}
-      <DragImage iId={imageId} currentParent={cellId} key={Math.random()} />
-    </div>
+    <Col key={Math.random()}>
+      <div className="myBoxP" id={id} key={id} ref={drop}>
+        {cellLabel}
+        <DragImage iId={imageId} currentParent={id} key={Math.random()} />
+      </div>
+    </Col>
   );
 };
 

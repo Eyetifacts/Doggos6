@@ -1,6 +1,6 @@
 import "../pages/HomePage.css";
-import { ItemTypes } from "./IMAGEITEM";
 import { useDrag } from "react-dnd";
+import { ItemTypes } from "./IMAGEITEM";
 
 function importAll(r) {
   let images = {};
@@ -14,7 +14,7 @@ const images = importAll(
   require.context("../app/assets/dogIcons", false, /\.(png|jpe?g|svg)$/)
 );
 
-const cellImgDisplay = (cellId, imgId, drag, isDragging) => {
+const cellImgDisplay = (currentParent, imgId, drag, isDragging) => {
   let cImg;
   if (imgId !== "") {
     cImg = images[imgId];
@@ -27,7 +27,7 @@ const cellImgDisplay = (cellId, imgId, drag, isDragging) => {
         key={imgId}
         src={cImg}
         id={imgId}
-        parent={cellId}
+        parent={currentParent}
         ref={drag}
         style={{
           opacity: isDragging ? 0.2 : 1,
