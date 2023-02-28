@@ -1,23 +1,4 @@
-import pic01 from "../assets/dogIcons/Picture__01.png";
-import pic02 from "../assets/dogIcons/Picture__02.png";
-import pic03 from "../assets/dogIcons/Picture__03.png";
-import pic04 from "../assets/dogIcons/Picture__04.png";
-import pic05 from "../assets/dogIcons/Picture__05.png";
-import pic06 from "../assets/dogIcons/Picture__06.png";
-import pic07 from "../assets/dogIcons/Picture__07.png";
-import pic08 from "../assets/dogIcons/Picture__08.png";
-import pic09 from "../assets/dogIcons/Picture__09.png";
-import pic10 from "../assets/dogIcons/Picture__10.png";
-import pic11 from "../assets/dogIcons/Picture__11.png";
-import pic12 from "../assets/dogIcons/Picture__12.png";
-import pic13 from "../assets/dogIcons/Picture__13.png";
-import pic14 from "../assets/dogIcons/Picture__14.png";
-import pic15 from "../assets/dogIcons/Picture__15.png";
-import pic16 from "../assets/dogIcons/Picture__16.png";
-import pic17 from "../assets/dogIcons/Picture__17.png";
-import pic18 from "../assets/dogIcons/Picture__18.png";
-import pic19 from "../assets/dogIcons/Picture__19.png";
-import pic20 from "../assets/dogIcons/Picture__20.png";
+import { dogImages } from "../../constants";
 
 // use currentTierIdCount to create unique tier ids
 // use currentCellIdCont to create unique cell ids
@@ -53,7 +34,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__20.png",
-          imageString: pic20,
+          imageString: dogImages.pic20,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-119",
           dropImgLoc: "",
@@ -68,7 +49,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__19.png",
-          imageString: pic19,
+          imageString: dogImages.pic19,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-118",
           dropImgLoc: "",
@@ -83,7 +64,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__18.png",
-          imageString: pic18,
+          imageString: dogImages.pic18,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-117",
           dropImgLoc: "",
@@ -799,7 +780,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__01.png",
-          imageString: pic01,
+          imageString: dogImages.pic01,
           imageUrl: "img/FrenchBulldog1.png",
           dropImgParent: "target-100",
         },
@@ -813,7 +794,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__02.png",
-          imageString: pic02,
+          imageString: dogImages.pic02,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-101",
           dropImgLoc: "",
@@ -829,7 +810,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__03.png",
-          imageString: pic03,
+          imageString: dogImages.pic03,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-102",
           dropImgLoc: "",
@@ -845,7 +826,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__04.png",
-          imageString: pic04,
+          imageString: dogImages.pic04,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-103",
           dropImgLoc: "",
@@ -861,7 +842,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__05.png",
-          imageString: pic05,
+          imageString: dogImages.pic05,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-104",
           dropImgLoc: "",
@@ -877,7 +858,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__06.png",
-          imageString: pic06,
+          imageString: dogImages.pic06,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-105",
           dropImgLoc: "",
@@ -893,7 +874,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__07.png",
-          imageString: pic07,
+          imageString: dogImages.pic07,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-106",
           dropImgLoc: "",
@@ -909,7 +890,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__08.png",
-          imageString: pic08,
+          imageString: dogImages.pic08,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-107",
           dropImgLoc: "",
@@ -925,7 +906,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__09.png",
-          imageString: pic09,
+          imageString: dogImages.pic09,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-108",
           dropImgLoc: "",
@@ -941,7 +922,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__10.png",
-          imageString: pic10,
+          imageString: dogImages.pic10,
           imageUrl: "img/FrenchBulldog1.png",
           currentImgDivId: "target-109",
           dropImgLoc: "",
@@ -957,7 +938,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__11.png",
-          imageString: pic11,
+          imageString: dogImages.pic11,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-110",
           dropImgLoc: "",
@@ -973,7 +954,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__12.png",
-          imageString: pic12,
+          imageString: dogImages.pic12,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-111",
           dropImgLoc: "",
@@ -989,7 +970,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__13.png",
-          imageString: pic13,
+          imageString: dogImages.pic13,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-112",
           dropImgLoc: "",
@@ -1005,7 +986,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__14.png",
-          imageString: pic14,
+          imageString: dogImages.pic14,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-113",
           dropImgLoc: "",
@@ -1021,7 +1002,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__15.png",
-          imageString: pic15,
+          imageString: dogImages.pic15,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-114",
           dropImgLoc: "",
@@ -1037,7 +1018,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__16.png",
-          imageString: pic16,
+          imageString: dogImages.pic16,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-115",
           dropImgLoc: "",
@@ -1053,7 +1034,7 @@ const INITIALGRID = [
           type: "IMAGE",
           draggable: true,
           imageId: "Picture__17.png",
-          imageString: pic17,
+          imageString: dogImages.pic17,
           imageUrl: "img/Beagle1.png",
           currentImgDivId: "target-116",
           dropImgLoc: "",
