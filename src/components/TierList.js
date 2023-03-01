@@ -85,16 +85,48 @@ const TierList = () => {
     };
     //
     //
+    const shiftImages = (dropRowCellArray, dropCellIndex) => {
+      console.log(dropCellIndex);
+      console.log(countImages(dropRowCellArray));
+      const startCellImageCount = countImages(dropRowCellArray);
+      if (dropCellIndex > startCellImageCount) {
+        console.log("PLACE AT END");
+        dropRowCellArray[startCellImageCount + 1].image = testImage2;
+      } else {
+        for (let i = 10; i > dropCellIndex; i--) {
+          dropRowCellArray[i].image = dropRowCellArray[i - 1].image;
+        }
+        dropRowCellArray[dropCellIndex].image = testImage2;
+      }
+
+      return dropRowCellArray;
+    };
+    //
+    //
+    const countImages = (dropCellRowArray) => {
+      let startImageCount = 0;
+      for (let i = 1; i < 11; i++) {
+        if (dropCellRowArray[i].image.imageId !== "") {
+          startImageCount = startImageCount + 1;
+        }
+      }
+      return startImageCount;
+    };
+    //
+    //
     const shiftDropRow = (dropCell) => {
       setTiers((prevState) => {
-        let dropCellLoc = 1;
         const getRowDropCell = findDropRowIndex(prevState, dropCell);
+
         let newGrid = JSON.parse(JSON.stringify(prevState));
-        if (getRowDropCell.foundCellIndex > 1) {
-          dropCellLoc = 10;
-        }
-        newGrid[getRowDropCell.foundRowIndex].cellArray[dropCellLoc].image =
-          testImage2;
+        let newRow = shiftImages(
+          newGrid[getRowDropCell.foundRowIndex].cellArray,
+          getRowDropCell.foundCellIndex
+        );
+
+        // newRow[getRowDropCell.foundCellIndex].image = testImage2;
+
+        newGrid[getRowDropCell.foundRowIndex].cellArray = newRow;
 
         return newGrid;
       });
