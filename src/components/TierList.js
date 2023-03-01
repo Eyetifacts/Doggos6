@@ -4,6 +4,7 @@ import Tier from "./Tier";
 import StartGrid from "../app/shared/StartGrid";
 import { useState } from "react";
 import Header from "./Header";
+import { dogImages } from "../constants";
 
 // Drop
 //
@@ -27,9 +28,9 @@ const TierList = () => {
   // tierUpdateHandler should update the state as indicated above
   //
   const tierUpdateHandler = (imageId, dragCell, dropCell) => {
-    console.log(imageId);
+    // console.log(imageId);
     // console.log(dragCell);
-    console.log(dropCell);
+    // console.log(dropCell);
     const emptyImage = {
       type: "",
       draggable: false,
@@ -50,12 +51,24 @@ const TierList = () => {
       dropImgParent: "parentContainer11",
     };
 
+    const testImage2 = {
+      type: "IMAGE",
+      draggable: true,
+      imageId: "Picture__10.png",
+      imageString: dogImages.pic10,
+      imageUrl: "img/FrenchBulldog1.png",
+      currentImgDivId: "target-109",
+      dropImgLoc: "",
+      dropImgParent: "parentContainer10",
+    };
+
     // Drop Cell Row
     //
     const findDropRowIndex = (tiers, dropCell) => {
+      //  Working, returns the rowIndex and the number (1 to 10) where dropped
       let foundDropItem = {
         foundRowIndex: -1,
-        foundCellndex: 0,
+        foundCellIndex: 0,
       };
       for (let i = 0; i < tiers.length; i++) {
         let cellDropChildren = tiers[i].cellArray;
@@ -70,6 +83,23 @@ const TierList = () => {
         }
       }
     };
+    //
+    //
+    const shiftDropRow = (dropCell) => {
+      setTiers((prevState) => {
+        let dropCellLoc = 1;
+        const getRowDropCell = findDropRowIndex(prevState, dropCell);
+        let newGrid = JSON.parse(JSON.stringify(prevState));
+        if (getRowDropCell.foundCellIndex > 1) {
+          dropCellLoc = 10;
+        }
+        newGrid[getRowDropCell.foundRowIndex].cellArray[dropCellLoc].image =
+          testImage2;
+
+        return newGrid;
+      });
+    };
+    shiftDropRow(dropCell);
 
     //
     //
@@ -145,38 +175,6 @@ const TierList = () => {
     //       tiers[foundItem.foundRow].cellArray[j].image;
     //   }
     // };
-
-    setTiers((prevState) => {
-      let newGrid = JSON.parse(JSON.stringify(prevState));
-      // newGrid[0].cellArray[1].image = testImage;
-      // newGrid[5].cellArray[1].image = emptyImage;
-
-      // drop cellIndex = 1
-      // shift last item left 3 => 4
-      // shift 2 => 3
-      // shift 1 => 2
-      // drop dragImage => 1
-      // empty original dragImage
-      // Number of pre-drop Images = 3
-      // Drop location = 1
-      // => Shift Let pre-drop images from 1 to 3 in reverse order
-      // Drop drag image to Location 1
-      // Empty pre-drag image cell location
-
-      // for lastCellImage down to currentDropCellImage
-      // Shift image imageLoc+1 = imageLoc
-
-      newGrid[0].cellArray[4].image = newGrid[0].cellArray[3].image;
-      newGrid[0].cellArray[3].image = newGrid[0].cellArray[2].image;
-      newGrid[0].cellArray[2].image = newGrid[0].cellArray[1].image;
-      newGrid[0].cellArray[1].image = newGrid[5].cellArray[1].image;
-      newGrid[5].cellArray[1].image = emptyImage;
-
-      return newGrid;
-    });
-
-    // console.log(tiers[0].cellArray[1]);
-    // console.log(tiers[5].cellArray[1]);
   };
 
   return (
