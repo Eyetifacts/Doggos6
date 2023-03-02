@@ -28,9 +28,6 @@ const TierList = () => {
   // tierUpdateHandler should update the state as indicated above
   //
   const tierUpdateHandler = (imageId, dragCell, dropCell) => {
-    // console.log(imageId);
-    // console.log(dragCell);
-    // console.log(dropCell);
     const emptyImage = {
       type: "",
       draggable: false,
@@ -85,18 +82,42 @@ const TierList = () => {
     };
     //
     //
-    const shiftImages = (dropRowCellArray, dropCellIndex) => {
-      console.log(dropCellIndex);
-      console.log(countImages(dropRowCellArray));
+    const getDragImageObject = (imageId, tiers) => {
+      let imageLocItem = {
+        imageRowIndex: -1,
+        imageCellIndex: 0,
+      };
+      let searchGrid = JSON.parse(JSON.stringify(tiers));
+      let dragImage = {};
+      for (let i = 0; i < searchGrid.length; i++) {
+        let dragChildren = searchGrid[i].cellArray;
+        let imageRowIndex = dragChildren.findIndex(
+          (cell) => cell.image.imageId === imageId
+        );
+
+        if (imageRowIndex > 0) {
+          imageLocItem.imageRowIndex = i;
+          imageLocItem.imageCellIndex = imageRowIndex;
+        }
+      }
+      dragImage =
+        searchGrid[imageLocItem.imageRowIndex].cellArray[
+          imageLocItem.imageCellIndex
+        ].image;
+      return dragImage;
+    };
+    // console.log(getImageObject(imageId, tiers));
+    //
+    //
+    const shiftImages = (dropRowCellArray, dropCellIndex, dragImage) => {
       const startCellImageCount = countImages(dropRowCellArray);
       if (dropCellIndex > startCellImageCount) {
-        console.log("PLACE AT END");
-        dropRowCellArray[startCellImageCount + 1].image = testImage2;
+        dropRowCellArray[startCellImageCount + 1].image = dragImage;
       } else {
         for (let i = 10; i > dropCellIndex; i--) {
           dropRowCellArray[i].image = dropRowCellArray[i - 1].image;
         }
-        dropRowCellArray[dropCellIndex].image = testImage2;
+        dropRowCellArray[dropCellIndex].image = dragImage;
       }
 
       return dropRowCellArray;
@@ -117,14 +138,14 @@ const TierList = () => {
     const shiftDropRow = (dropCell) => {
       setTiers((prevState) => {
         const getRowDropCell = findDropRowIndex(prevState, dropCell);
+        const dragImage = getDragImageObject(imageId, prevState);
 
         let newGrid = JSON.parse(JSON.stringify(prevState));
         let newRow = shiftImages(
           newGrid[getRowDropCell.foundRowIndex].cellArray,
-          getRowDropCell.foundCellIndex
+          getRowDropCell.foundCellIndex,
+          dragImage
         );
-
-        // newRow[getRowDropCell.foundCellIndex].image = testImage2;
 
         newGrid[getRowDropCell.foundRowIndex].cellArray = newRow;
 
@@ -163,19 +184,6 @@ const TierList = () => {
         if (row.cellArray[i].image.imageId !== "") imageCount = imageCount + 1;
       }
       return imageCount;
-    };
-
-    const shiftRowAndDropImage = (tiers, dropCell, dragCell) => {
-      const dropIndex = findDropRowIndex(tiers, dropCell);
-      const imageCount = countCurrentRowImages(
-        tiers[dropIndex.foundRowIndex].cellArray
-      );
-      for (let i = imageCount; i > dropIndex.foundCellndex; i--) {
-        tiers[dropIndex.foundRowIndex].cellArray[i + 1] =
-          tiers[dropIndex.foundRowIndex].cellArray[i];
-      }
-      tiers[dropIndex.foundRowIndex].cellArray[dropIndex.foundCellndex].image =
-        testImage;
     };
 
     // Drag Cell Row
