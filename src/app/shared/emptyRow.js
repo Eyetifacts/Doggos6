@@ -1,0 +1,136 @@
+import { dogImages } from "../../constants";
+
+const emptyRow = [
+  {
+    id: "target-100",
+    cellText: "",
+    cellLocation: "item-image-cell1",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-101",
+    cellText: "",
+    cellLocation: "item-image-cell1",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-102",
+    cellText: "",
+    cellLocation: "item-image-cell2",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-103",
+    cellText: "",
+    cellLocation: "item-image-cell3",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-104",
+    cellText: "",
+    cellLocation: "item-image-cell4",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-105",
+    cellText: "",
+    cellLocation: "item-image-cell5",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-106",
+    cellText: "",
+    cellLocation: "item-image-cell6",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-107",
+    cellText: "",
+    cellLocation: "item-image-cell7",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-108",
+    cellText: "",
+    cellLocation: "item-image-cell8",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+  {
+    id: "target-109",
+    cellText: "",
+    cellLocation: "item-image-cell9",
+    cellStyle: "myBoxP",
+    image: {
+      type: "",
+      draggable: false,
+      imageId: "",
+      imageUrl: "",
+      dropImgParent: "",
+    },
+  },
+];
+
+export default emptyRow;

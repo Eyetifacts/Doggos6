@@ -5,6 +5,11 @@ import StartGrid from "../app/shared/StartGrid";
 import { useState } from "react";
 import Header from "./Header";
 import { dogImages } from "../constants";
+import testDropRow from "../app/shared/dropTest";
+import testDragRow from "../app/shared/dragTest";
+import emptyRow from "../app/shared/emptyRow";
+import testDragRow31 from "../app/shared/dragTest31";
+import testDropRow20 from "../app/shared/dropTest20]";
 
 // Drop
 //
@@ -95,337 +100,11 @@ const TierList = () => {
     };
     //
     //
-    const testRow = [
-      {
-        id: "labelTierCelll0",
-        cellLabel: "Label10",
-        cellStyle: "myLabelBox",
-        image: {
-          type: "",
-          draggable: false,
-          imageId: "",
-          imageUrl: "",
-          dropImgParent: "",
-        },
-      },
-      {
-        id: "target-100",
-        celllabel: "target-100",
-        cellLocation: "item-image-cell100",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__01.png",
-          imageString: dogImages.pic01,
-          imageUrl: "img/FrenchBulldog1.png",
-          dropImgParent: "target-100",
-        },
-      },
-      {
-        id: "target-101",
-        cellText: "",
-        cellLocation: "item-image-cell1",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__02.png",
-          imageString: dogImages.pic02,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-101",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-102",
-        cellText: "",
-        cellLocation: "item-image-cell2",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__03.png",
-          imageString: dogImages.pic03,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-102",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-103",
-        cellText: "",
-        cellLocation: "item-image-cell3",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__04.png",
-          imageString: dogImages.pic04,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-103",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-104",
-        cellText: "",
-        cellLocation: "item-image-cell4",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__05.png",
-          imageString: dogImages.pic05,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-104",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-105",
-        cellText: "",
-        cellLocation: "item-image-cell5",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__06.png",
-          imageString: dogImages.pic06,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-105",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-106",
-        cellText: "",
-        cellLocation: "item-image-cell6",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__07.png",
-          imageString: dogImages.pic07,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-106",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-107",
-        cellText: "",
-        cellLocation: "item-image-cell7",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__08.png",
-          imageString: dogImages.pic08,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-107",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-108",
-        cellText: "",
-        cellLocation: "item-image-cell8",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__09.png",
-          imageString: dogImages.pic09,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-108",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-109",
-        cellText: "",
-        cellLocation: "item-image-cell9",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__10.png",
-          imageString: dogImages.pic10,
-          imageUrl: "img/FrenchBulldog1.png",
-          currentImgDivId: "target-109",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer10",
-        },
-      },
-      {
-        id: "target-110",
-        cellText: "",
-        cellLocation: "item-image-cell0",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__11.png",
-          imageString: dogImages.pic11,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-110",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-111",
-        cellText: "",
-        cellLocation: "item-image-cell1",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__12.png",
-          imageString: dogImages.pic12,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-111",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-112",
-        cellText: "",
-        cellLocation: "item-image-cell2",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__13.png",
-          imageString: dogImages.pic13,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-112",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-113",
-        cellText: "",
-        cellLocation: "item-image-cell3",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__14.png",
-          imageString: dogImages.pic14,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-113",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-114",
-        cellText: "",
-        cellLocation: "item-image-cell4",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__15.png",
-          imageString: dogImages.pic15,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-114",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-115",
-        cellText: "",
-        cellLocation: "item-image-cell5",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__16.png",
-          imageString: dogImages.pic16,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-115",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-116",
-        cellText: "",
-        cellLocation: "item-image-cell6",
-        cellStyle: "myBoxP",
-        image: {
-          type: "IMAGE",
-          draggable: true,
-          imageId: "Picture__17.png",
-          imageString: dogImages.pic17,
-          imageUrl: "img/Beagle1.png",
-          currentImgDivId: "target-116",
-          dropImgLoc: "",
-          dropImgParent: "parentContainer11",
-        },
-      },
-      {
-        id: "target-117",
-        cellText: "",
-        cellLocation: "item-image-cell7",
-        cellStyle: "myBoxP",
-        image: {
-          type: "",
-          draggable: false,
-          imageId: "",
-          imageString: null,
-          imageUrl: "",
-          dropImgParent: "",
-        },
-      },
-      {
-        id: "target-118",
-        cellText: "",
-        cellLocation: "item-image-cell8",
-        cellStyle: "myBoxP",
-        image: {
-          type: "",
-          draggable: false,
-          imageId: "",
-          imageString: null,
-          imageUrl: "",
-          dropImgParent: "",
-        },
-      },
-      {
-        id: "target-119",
-        cellText: "",
-        cellLocation: "item-image-cell9",
-        cellStyle: "myBoxP",
-        image: {
-          type: "",
-          draggable: false,
-          imageId: "",
-          imageString: null,
-          imageUrl: "",
-          dropImgParent: "",
-        },
-      },
-    ];
     const testDragOrDrop = "drop";
     const testFoundItem = {
       foundRowIndex: 5,
       foundCellIndex: 3,
-      foundRowImageCount: 17,
+      foundRowImageCount: 20,
     };
 
     const testDragImageObject = {
@@ -440,21 +119,35 @@ const TierList = () => {
     };
 
     const shiftImages = (dragOrDrop, row, foundItem, dragImageObject) => {
-      let shiftRow = row;
+      let inputRow = JSON.parse(JSON.stringify(row));
+      const startInputCellCount = inputRow.length;
+      let shiftRow = {};
       const index = foundItem.foundCellIndex;
       const imgCount = foundItem.foundRowImageCount;
       // Drag Shift
       if (dragOrDrop === "drag") {
-        for (let i = index; i < imgCount - 1; i++) {
-          shiftRow[i].image = shiftRow[i + 1].image;
+        for (let i = index; i < imgCount; i++) {
+          inputRow[i].image = inputRow[i + 1].image;
         }
-        shiftRow[imgCount].image = emptyImage;
+        if (imgCount % 10 === 1) {
+          inputRow.length = startInputCellCount - 10;
+          shiftRow = inputRow;
+        } else {
+          shiftRow = inputRow;
+        }
       } else {
         // Drop Shift
+        let addRow = row.concat(emptyRow);
+        if (imgCount % 10 === 0) {
+          shiftRow = inputRow.concat(emptyRow);
+          console.log(shiftRow);
+        } else {
+          shiftRow = inputRow;
+        }
         if (index > imgCount) {
           shiftRow[imgCount + 1].image = dragImageObject;
         } else {
-          for (let i = imgCount; i > index; i--) {
+          for (let i = imgCount + 1; i > index; i--) {
             shiftRow[i].image = shiftRow[i - 1].image;
           }
           shiftRow[index].image = dragImageObject;
@@ -462,8 +155,14 @@ const TierList = () => {
       }
       return shiftRow;
     };
+    //
     console.log(
-      shiftImages(testDragOrDrop, testRow, testFoundItem, testDragImageObject)
+      shiftImages(
+        testDragOrDrop,
+        testDropRow20,
+        testFoundItem,
+        testDragImageObject
+      )
     );
     //
     //
